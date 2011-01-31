@@ -1,10 +1,10 @@
 from simulator import Simulator
 import pygame
 
-WINDOW_SIZE = (80,80)
-BACK_COLOR = (200,200,200)
-
 class Window(object):
+	WINDOW_SIZE = (200,200)
+	BACK_COLOR = (200,200,200)
+
 	simulator = None
 	canvas = None
 
@@ -13,11 +13,12 @@ class Window(object):
 		simulator.register_step_callback(self.draw_model)
 
 		pygame.init()
-		self.canvas = pygame.display.set_mode(WINDOW_SIZE)
-		self.canvas.fill(BACK_COLOR)
+		self.canvas = pygame.display.set_mode(self.WINDOW_SIZE)
 
 
 	def draw_model(self):
+		self.canvas.fill(self.BACK_COLOR)
+
 		for segment in self.simulator.segments:
 			pygame.draw.aaline(self.canvas, segment.get_color(),
 			                   segment.connA.coords, segment.connB.coords)

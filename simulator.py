@@ -26,4 +26,7 @@ class Simulator(object):
 			cb()
 
 	def step(self):
+		for seg in self.segments:
+			seg.eval_step()
+
 		self.run_step_callbacks()

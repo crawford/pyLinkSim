@@ -6,11 +6,11 @@ from free_joint import FreeJoint
 sim = Simulator()
 win = Window(sim)
 
-cA = Anchor((10,50))
-cB = FreeJoint((40,50))
-cC = Anchor((70,50))
-cD = FreeJoint((25,30))
-cE = FreeJoint((55,30))
+cA = Anchor((70,110))
+cB = FreeJoint((100,110))
+cC = Anchor((130,110))
+cD = FreeJoint((85,90))
+cE = FreeJoint((115,90))
 
 sim.create_segment(cA, cB)
 sim.create_segment(cA, cD)
@@ -22,7 +22,9 @@ sim.create_segment(cD, cE)
 
 raw_input("Created. Press key")
 
-sim.step()
+while True:
+	sim.step()
 
-raw_input("Stepped. Presss key")
+	if raw_input("Stepped. Presss key") == 'q':
+		break
 
