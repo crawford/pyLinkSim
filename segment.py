@@ -53,7 +53,3 @@ class Segment(object):
 	def get_length(self):
 		return sqrt(pow(self.connA.coords[0] - self.connB.coords[0], 2) +
 		            pow(self.connA.coords[1] - self.connB.coords[1], 2))
-
-	def eval_step(self):
-		self.connA.coords = (self.connA.coords[0], self.connA.coords[1] + 1)
-		self.connB.coords = (self.connB.coords[0], self.connB.coords[1] + 1)
